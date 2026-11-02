@@ -1,0 +1,58 @@
+REQUETE MYSQL
+
+2.
+
+CREATE TABLE utilisateurs (
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    age INT(11) NOT NULL,
+    date_de_naissance DATE NOT NULL,
+    adresse VARCHAR(250) NOT NULL,
+    email VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE tvs (
+    nom_de_tv VARCHAR(150) NOT NULL,
+    marque_de_tv VARCHAR(50) NOT NULL,
+    taille DECIMAL(20,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE smartphones (
+    nom_de_smartphone VARCHAR(150) NOT NULL,
+    marque_de_smartphone VARCHAR(50) NOT NULL,
+    couleur VARCHAR(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+3
+
+ALTER TABLE smartphones
+CHANGE couleur date_de_sortie DATE NOT NULL;
+
+4
+
+ALTER TABLE utilisateurs
+ADD id_utilisateurs INT AUTO_INCREMENT PRIMARY KEY FIRST;
+
+ALTER TABLE tvs
+ADD id_tvs INT AUTO_INCREMENT PRIMARY KEY FIRST;
+
+ALTER TABLE smartphones
+ADD id_smartphones INT AUTO_INCREMENT PRIMARY KEY FIRST;
+
+
+5
+
+INSERT INTO utilisateurs (nom, prenom, age, date_de_naissance, adresse, email) VALUES
+('Dupont', 'Marie', 28, '1998-03-15', '12 rue de la Paix, 1000 Bruxelles', 'marie.dupont@email.be'),
+('Martin', 'Lucas', 35, '1991-07-22', '45 avenue Louise, 1050 Ixelles', 'lucas.martin@email.be'),
+('Bernard', 'Sophie', 22, '2004-11-08', '8 place de la Monnaie, 1000 Bruxelles', 'sophie.bernard@email.be');
+
+INSERT INTO tvs (nom_de_tv, marque_de_tv, taille) VALUES
+('OLED C5 65"', 'LG', 65.00),
+('QN90F Series 65"', 'Samsung', 65.00),
+('Bravia 8 Series 55"', 'Sony', 55.00);
+
+INSERT INTO smartphones (nom_de_smartphone, marque_de_smartphone, date_de_sortie) VALUES
+('iPhone 17 Pro', 'Apple', '2025-09-19'),
+('Galaxy S25 Ultra', 'Samsung', '2025-01-22'),
+('Pixel 10 Pro', 'Google', '2025-08-28');
